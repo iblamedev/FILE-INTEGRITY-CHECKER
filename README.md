@@ -1,195 +1,26 @@
-# File Integrity Checker
+#FILE-INTEGRITY-CHECKER
 
-A comprehensive tool for detecting file tampering through hash comparison, featuring both a Python CLI and a beautiful React web interface.
+*COMPANY*    :    CODTECH IT SOLUTIONS
 
-![File Integrity Checker](https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop)
+*NAME*       :    DEV BALAJI A
 
-## 🚀 Features
+*INTERN ID*  :    CITS0D23
 
-- **Hash-based Verification**: Uses SHA-256 hashing to detect file modifications
-- **Dual Interface**: Command-line Python script + modern React web interface
-- **Database Management**: JSON-based database for storing file integrity records
-- **Real-time Monitoring**: Track file status with verification history
-- **Import/Export**: Backup and restore integrity databases
-- **Dark Mode**: Beautiful UI with light/dark theme support
-- **Drag & Drop**: Easy file upload via web interface
+*DOMAIN*     :    CYBER SECURITY
 
-## 📋 Requirements
+*DURATION*   :    4 WEEKS
 
-### Python CLI
-- Python 3.6+
-- No external dependencies (uses only standard library)
+*MENTOR*     :    NEELA SANTOSH
 
-### Web Interface
-- Node.js 16+
-- npm or yarn
 
-## 🛠️ Installation
+The File Integrity Checker is a cybersecurity tool designed to detect unauthorized modifications in files by comparing cryptographic hash values. Its primary purpose is to ensure the authenticity and integrity of files, especially in environments where data tampering, malware infections, or unauthorized file changes pose significant risks.
 
-### Clone the Repository
-```bash
-git clone https://github.com/yourusername/file-integrity-checker.git
-cd file-integrity-checker
-```
+This tool works by using cryptographic hash functions such as SHA-256 to compute a unique digital fingerprint for a file. Once the hash is generated and stored, it can later be used to compare against the current hash of the same file. If both hash values match, it means the file has not been tampered with. If they differ, it indicates that the file has been altered, either intentionally or unintentionally.
 
-### For Web Interface
-```bash
-npm install
-npm run dev
-```
+In our implementation, the File Integrity Checker features a modern web interface that allows users to drag and drop files for real-time integrity checks. The interface displays key metrics such as the total number of files scanned, how many are verified, how many are tampered with, and how many are unknown. It also maintains a file database, storing the hash values and metadata of each file, such as name, size, and last modified time.
 
-## 📖 Usage
+Users can import or export the file database as a JSON file, making the system easily portable and backup-friendly. This tool provides functionalities to verify single files or batch-verify all files within the database. It is especially useful for developers, system administrators, and security professionals who need to ensure that critical configuration files, scripts, or executables have not been altered.
 
-### Python CLI
+Technically, the tool is built using React for the frontend and uses browser-based file APIs and Web Crypto API for hashing. It ensures that all operations, including hash computation and verification, occur client-side, enhancing user privacy and data security.
 
-#### Add a file to the database
-```bash
-python file_integrity_checker.py add /path/to/file.txt "Important document"
-```
-
-#### Verify a single file
-```bash
-python file_integrity_checker.py verify /path/to/file.txt
-```
-
-#### Verify all files in database
-```bash
-python file_integrity_checker.py verify-all
-```
-
-#### List all files in database
-```bash
-python file_integrity_checker.py list
-```
-
-#### Remove a file from database
-```bash
-python file_integrity_checker.py remove /path/to/file.txt
-```
-
-#### Export database
-```bash
-python file_integrity_checker.py export backup.json
-```
-
-#### Import database
-```bash
-python file_integrity_checker.py import backup.json
-# Or merge with existing database
-python file_integrity_checker.py import backup.json merge
-```
-
-### Web Interface
-
-1. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-2. Open your browser to `http://localhost:5173`
-
-3. Use the web interface to:
-   - Drag and drop files for integrity checking
-   - View file status with beautiful visualizations
-   - Monitor verification history
-   - Export/import databases
-   - Toggle between light and dark themes
-
-## 🏗️ How It Works
-
-1. **File Addition**: When a file is added, the system calculates its SHA-256 hash and stores it along with metadata (size, date, description)
-
-2. **Verification**: During verification, the current file hash is compared against the stored hash
-
-3. **Status Tracking**: Files are marked as:
-   - ✅ **Verified**: Hash matches, file is unchanged
-   - ⚠️ **Tampered**: Hash differs, file has been modified
-   - ❌ **Missing**: File no longer exists
-   - ❓ **Unknown**: File not in database
-
-4. **Database**: All data is stored in a JSON file (`integrity_database.json`) for portability
-
-## 📁 Project Structure
-
-```
-file-integrity-checker/
-├── file_integrity_checker.py    # Main Python CLI script
-├── src/
-│   ├── App.tsx                  # React main component
-│   ├── main.tsx                 # React entry point
-│   └── index.css                # Tailwind CSS
-├── package.json                 # Node.js dependencies
-├── tailwind.config.js           # Tailwind configuration
-├── vite.config.ts              # Vite build configuration
-└── README.md                   # This file
-```
-
-## 🎨 Screenshots
-
-### Web Interface - Light Mode
-The web interface provides an intuitive dashboard for managing file integrity checks with real-time status updates and beautiful visualizations.
-
-### Web Interface - Dark Mode
-Includes a sleek dark mode for comfortable usage in low-light environments.
-
-### CLI Interface
-```
-$ python file_integrity_checker.py verify-all
-Verification Results:
-  ✓ Verified: 15
-  ⚠ Tampered: 2
-  ✗ Errors: 0
-  TAMPERED: /home/user/important_document.pdf
-  TAMPERED: /home/user/config.json
-```
-
-## 🔒 Security Features
-
-- **SHA-256 Hashing**: Cryptographically secure hash function
-- **Tamper Detection**: Detects even single-bit changes
-- **Metadata Tracking**: Monitors file size and modification dates
-- **Audit Trail**: Maintains verification history and check counts
-
-## 🚀 Building for Production
-
-### Web Interface
-```bash
-npm run build
-```
-
-The built files will be in the `dist/` directory, ready for deployment to any static hosting service.
-
-### Python Script
-The Python script is ready to use as-is. You can also create a standalone executable:
-
-```bash
-pip install pyinstaller
-pyinstaller --onefile file_integrity_checker.py
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Icons from [Lucide React](https://lucide.dev/)
-- Python's built-in `hashlib` for cryptographic functions
-
-## 📞 Support
-
-If you encounter any issues or have questions, please [open an issue](https://github.com/yourusername/file-integrity-checker/issues) on GitHub.
-
----
-
-**⭐ If you find this project useful, please consider giving it a star on GitHub!**
+Overall, this tool combines functionality and design to deliver an intuitive, secure, and efficient solution for file integrity monitoring. It plays a vital role in maintaining trust in system files, application resources, and user documents.
