@@ -1,4 +1,4 @@
-#FILE-INTEGRITY-CHECKER
+# FILE-INTEGRITY-CHECKER
 
 *COMPANY*    :    CODTECH IT SOLUTIONS
 
@@ -24,3 +24,8 @@ Users can import or export the file database as a JSON file, making the system e
 Technically, the tool is built using React for the frontend and uses browser-based file APIs and Web Crypto API for hashing. It ensures that all operations, including hash computation and verification, occur client-side, enhancing user privacy and data security.
 
 Overall, this tool combines functionality and design to deliver an intuitive, secure, and efficient solution for file integrity monitoring. It plays a vital role in maintaining trust in system files, application resources, and user documents.
+
+
+# OUTPUT
+
+![Image](https://github.com/user-attachments/assets/8a695a8e-fb06-4035-9821-1ee58fdec4e4)
